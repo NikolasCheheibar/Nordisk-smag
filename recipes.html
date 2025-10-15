@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Opskrifter - Nordisk Smag</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo">NORDISK <span>SMAG</span></div>
+        <nav class="main-nav">
+            <a href="index.html">Forside</a>
+            <a href="recipes.html">Opskrifter</a>
+            <a href="om.html">Om os</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+
+    <main class="recipes content-with-footer">
+        <h1 class="page-title">Opskrifter</h1>
+        <section class="controls">
+            <label for="filter">Kategori</label>
+            <select id="filter"></select>
+        </section>
+        <section class="recipe-list" aria-live="polite"></section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <div class="logo small">NORDISK SMAG</div>
+            <nav class="footer-nav"><a href="om.html">Om os</a> <a href="kontakt.html">Kontakt</a> <a
+                    href="job.html">Job</a></nav>
+        </div>
+        <div class="newsletter">
+            <label for="email">Tilmeld nyhedsbrev</label>
+            <form id="newsletter" onsubmit="event.preventDefault(); alert('Tak for tilmelding!');">
+                <input id="email" type="email" placeholder="Din e-mail" required>
+                <button type="submit">Tilmeld</button>
+            </form>
+        </div>
+    </footer>
+
+    <script src="js/recipes.js"></script>
+</body>
+
+</html>
