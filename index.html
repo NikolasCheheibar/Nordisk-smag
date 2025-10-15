@@ -9,3 +9,65 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
+<body>
+
+    <header class="site-header">
+        <div class="logo">NORDISK SMAG</div>
+        <nav class="main-nav">
+            <a href="#">Log på</a>
+            <a href="index.html">Forside</a>
+            <a href="recipes.html">Opskrifter</a>
+            <a href="om.html">Om os</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>VELKOMMEN TIL NORDISK SMAG</h1>
+            <p>Oplev enkle og sunde retter med nordisk twist – lavet til både børn, unge og familier.
+                Find inspiration fra morgenmad til dessert, og lad madlavningen blive hyggens centrum.</p>
+        </div>
+
+        <div class="menu-grid">
+            <article class="card">
+                <div class="card-image" style="background-image:url('images/breakfast.jpg')"></div>
+                <div class="card-caption">MORGENMAD</div>
+            </article>
+            <article class="card">
+                <div class="card-image" style="background-image:url('images/frokost.jpg')"></div>
+                <div class="card-caption">FROKOST</div>
+            </article>
+            <article class="card">
+                <div class="card-image" style="background-image:url('images/aftensmad.jpg')"></div>
+                <div class="card-caption">AFTENSMAD</div>
+            </article>
+            <article class="card">
+                <div class="card-image" style="background-image:url('images/dessert.jpg')"></div>
+                <div class="card-caption">DESSERT</div>
+            </article>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <div class="logo small">NORDISK SMAG</div>
+            <nav class="footer-nav">
+                <a href="om.html">Om os</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="job.html">Job</a>
+            </nav>
+        </div>
+        <div class="newsletter">
+            <label for="email">Tilmeld nyhedsbrev</label>
+            <form onsubmit="event.preventDefault(); alert('Tak for tilmelding!');">
+                <input id="email" type="email" placeholder="Din e-mail" required>
+                <button type="submit">Tilmeld</button>
+            </form>
+        </div>
+    </footer>
+
+</body>
+
+</html>
