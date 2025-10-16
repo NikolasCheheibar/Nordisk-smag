@@ -2,72 +2,178 @@
 <html lang="da">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Nordisk Smag</title>
-    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        footer {
+            background-color: #C60C30;
+            /* Updated red */
+            color: white;
+            padding: 40px 60px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .footer-left {
+            max-width: 40%;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.4;
+            border-bottom: 2px solid white;
+            /* underline under logo */
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            display: block;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            margin: 25px 0;
+        }
+
+        .footer-links a {
+            margin-right: 25px;
+            text-decoration: none;
+            color: white;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .footer-right {
+            max-width: 40%;
+            text-align: right;
+        }
+
+        .newsletter {
+            margin-bottom: 20px;
+        }
+
+        .newsletter label {
+            font-weight: bold;
+            font-style: italic;
+            margin-right: 10px;
+        }
+
+        .newsletter input[type="email"] {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .newsletter button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: white;
+            color: #C60C30;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-left: 12px;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-right {
+                text-align: center;
+                margin-top: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
     <header class="site-header">
-        <div class="logo">NORDISK SMAG</div>
+        <div class="logo"><img src="assets/images/logo.svg" alt="NORDISK SMAG logo"></div>
         <nav class="main-nav">
-            <a href="#">Log på</a>
             <a href="index.html">Forside</a>
             <a href="recipes.html">Opskrifter</a>
-            <a href="om.html">Om os</a>
-            <a href="kontakt.html">Kontakt</a>
+            <a href="form.html">Tilføj opskrift</a>
         </nav>
     </header>
 
-    <section class="hero">
+    <main class="hero">
         <div class="hero-inner">
             <h1>VELKOMMEN TIL NORDISK SMAG</h1>
-            <p>Oplev enkle og sunde retter med nordisk twist – lavet til både børn, unge og familier.
-                Find inspiration fra morgenmad til dessert, og lad madlavningen blive hyggens centrum.</p>
+            <p>Oplev ærlige og sunde retter med nordisk twist – lavet til både børn, unge og familier.
+                Find inspiration til morgenmad, frokost, aftensmad og dessert, og lad madlavningen blive hyggens
+                centrum.</p>
+            <div class="categories">
+                <a class="cat" href="recipes.html?type=Breakfast">Morgenmad</a>
+                <a class="cat" href="recipes.html?type=Lunch">Frokost</a>
+                <a class="cat" href="recipes.html?type=Dinner">Aftensmad</a>
+                <a class="cat" href="recipes.html?type=Dessert">Dessert</a>
+            </div>
         </div>
+    </main>
 
-        <div class="menu-grid">
-            <article class="card">
-                <div class="card-image" style="background-image:url('images/breakfast.jpg')"></div>
-                <div class="card-caption">MORGENMAD</div>
-            </article>
-            <article class="card">
-                <div class="card-image" style="background-image:url('images/frokost.jpg')"></div>
-                <div class="card-caption">FROKOST</div>
-            </article>
-            <article class="card">
-                <div class="card-image" style="background-image:url('images/aftensmad.jpg')"></div>
-                <div class="card-caption">AFTENSMAD</div>
-            </article>
-            <article class="card">
-                <div class="card-image" style="background-image:url('images/dessert.jpg')"></div>
-                <div class="card-caption">DESSERT</div>
-            </article>
-        </div>
-    </section>
+    <!-- ✅ Clean footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- Left side -->
+            <div class="footer-left">
+                <div class="footer-logo">
+                    NORDISK <br>
+                    <span>SMAG</span>
+                </div>
 
-    <footer class="site-footer">
-        <div class="footer-left">
-            <div class="logo small">NORDISK SMAG</div>
-            <nav class="footer-nav">
-                <a href="om.html">Om os</a>
-                <a href="kontakt.html">Kontakt</a>
-                <a href="job.html">Job</a>
-            </nav>
-        </div>
-        <div class="newsletter">
-            <label for="email">Tilmeld nyhedsbrev</label>
-            <form onsubmit="event.preventDefault(); alert('Tak for tilmelding!');">
-                <input id="email" type="email" placeholder="Din e-mail" required>
-                <button type="submit">Tilmeld</button>
-            </form>
+                <div class="footer-links">
+                    <a href="#">Om os</a>
+                    <a href="#">Kontakt</a>
+                    <a href="#">Job</a>
+                </div>
+            </div>
+
+            <!-- Right side -->
+            <div class="footer-right">
+                <div class="newsletter">
+                    <label for="email">Nyhedsbrev:</label>
+                    <input type="email" id="email" placeholder="Email">
+                    <button>SIGN UP</button>
+                </div>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fas fa-rss"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 
 </html>

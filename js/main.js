@@ -1,3 +1,6 @@
 /** @format */
 
-console.log("Nordisk Smag - frontpage loaded");
+// main.js - utility listeners
+document.addEventListener("DOMContentLoaded", () => {
+  // nothing yet - placeholder for future code
+});

@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Barrio&display=swap');
 
 :root {
-    --red: #C60C30;
+    --red: #C8102E;
     --white: #ffffff;
-    --dark: #222222;
-    --footer: #6a5acd;
+    --bg-overlay: rgba(0, 0, 0, 0.25);
 }
 
-/* Reset og grundopsætning */
+/* Reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,29 +16,55 @@
 html,
 body {
     height: 100%;
-    font-family: 'Inter', Arial, sans-serif;
-    color: var(--dark);
-    background-color: #bca9d9;
 }
 
-/* HEADER */
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #222;
+    background-image: url('../images/fig.png');
+    /* background image */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100%;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: var(--bg-overlay);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Barrio font only for headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Barrio', cursive;
+}
+
+/* ---------- HEADER ---------- */
 .site-header {
     position: sticky;
     top: 0;
-    background: var(--red);
-    color: var(--white);
+    z-index: 5;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    z-index: 20;
+    padding: 0.75rem 1rem;
+    background: var(--red);
+    color: var(--white);
 }
 
-.logo {
-    font-family: 'Barrio', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
+.site-header .logo img {
+    height: 36px;
 }
 
 .main-nav a {
@@ -49,112 +74,120 @@ body {
     font-weight: 600;
 }
 
-/* HERO + baggrund */
+/* ---------- HERO ---------- */
 .hero {
-    position: relative;
+    min-height: calc(100vh - 56px);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    background: url('../images/figner.webp') center top / cover no-repeat;
-    background-attachment: fixed;
+    justify-content: center;
     text-align: center;
-    padding-top: 5rem;
-    z-index: 1;
+    padding: 2rem 1rem;
+    z-index: 2;
+    position: relative;
 }
 
 .hero-inner {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(6px);
-    padding: 2rem 3rem;
+    max-width: 720px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2rem;
     border-radius: 12px;
-    max-width: 800px;
-    margin-top: 2rem;
+    backdrop-filter: blur(4px);
 }
 
 .hero h1 {
-    font-family: 'Barrio', sans-serif;
-    font-size: 40px;
-    color: var(--dark);
+    color: var(--white);
+    margin: 0 0 0.5rem;
+    font-size: 28px;
+    letter-spacing: 1px;
 }
 
 .hero p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--dark);
-    margin-top: 1rem;
+    color: var(--white);
+    margin: 0 0 1.25rem;
+    line-height: 1.5;
 }
 
-/* MENU-GRID ovenpå billedet */
-.menu-grid {
+/* ---------- CATEGORIES ---------- */
+.categories {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    width: 90%;
-    max-width: 1300px;
-    margin: 3rem auto;
-    z-index: 2;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
-.card {
+.cat {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 280px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: 'Barrio', cursive;
+    font-size: 22px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
     overflow: hidden;
-    border-radius: 8px;
-    background: #fff;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform .3s ease;
+    border: 3px solid #2f2c79;
+    /* dark blue border */
 }
 
-.card:hover {
-    transform: translateY(-4px);
-}
-
-.card-image {
-    width: 100%;
-    height: 220px;
+.cat::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
+    transition: transform 0.3s ease;
+    z-index: -2;
 }
 
-.card-caption {
-    font-family: 'Barrio', sans-serif;
-    font-size: 20px;
-    padding: 0.8rem 0;
-    background: #fff;
-    color: var(--dark);
+.cat::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
 }
 
-/* FOOTER */
+/* Hover effect */
+.cat:hover::before {
+    transform: scale(1.1);
+}
+
+/* Assign images to categories */
+.cat[href*="Breakfast"]::before {
+    background-image: url('../images/morgen_result.webp');
+}
+
+.cat[href*="Lunch"]::before {
+    background-image: url('../images/DSC_0424.webp');
+}
+
+.cat[href*="Dinner"]::before {
+    background-image: url('../images/gluten-free-spaghetti-bolognese-close-500x500.webp');
+}
+
+.cat[href*="Dessert"]::before {
+    background-image: url('../images/tiraaa_result.webp');
+}
+
+/* ---------- FOOTER ---------- */
 .site-footer {
-    background: var(--footer);
-    color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.footer-nav a {
-    color: var(--white);
-    text-decoration: none;
-    margin-left: 1rem;
-}
-
-/* RESPONSIV */
-@media (max-width: 900px) {
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .menu-grid {
-        grid-template-columns: 1fr;
+/* ---------- RESPONSIVE ---------- */
+@media(min-width:768px) {
+    .hero h1 {
+        font-size: 36px;
     }
 
     .hero-inner {
-        padding: 1.5rem;
+        padding: 3rem;
     }
 }
