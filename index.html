@@ -7,116 +7,23 @@
     <title>Nordisk Smag</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        footer {
-            background-color: #C60C30;
-            /* Updated red */
-            color: white;
-            padding: 40px 60px;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-
-        .footer-left {
-            max-width: 40%;
-        }
-
-        .footer-logo {
-            font-size: 22px;
-            font-weight: bold;
-            line-height: 1.4;
-            border-bottom: 2px solid white;
-            /* underline under logo */
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        .footer-logo span {
-            display: block;
-            font-weight: normal;
-            margin-top: 5px;
-        }
-
-        .footer-links {
-            margin: 25px 0;
-        }
-
-        .footer-links a {
-            margin-right: 25px;
-            text-decoration: none;
-            color: white;
-            font-style: italic;
-            font-weight: bold;
-        }
-
-        .footer-right {
-            max-width: 40%;
-            text-align: right;
-        }
-
-        .newsletter {
-            margin-bottom: 20px;
-        }
-
-        .newsletter label {
-            font-weight: bold;
-            font-style: italic;
-            margin-right: 10px;
-        }
-
-        .newsletter input[type="email"] {
-            padding: 8px;
-            border: none;
-            border-radius: 4px;
-            margin-right: 5px;
-        }
-
-        .newsletter button {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 4px;
-            background-color: white;
-            color: #C60C30;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .social-icons {
-            margin-top: 15px;
-        }
-
-        .social-icons a {
-            color: white;
-            margin-left: 12px;
-            font-size: 18px;
-            text-decoration: none;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-right {
-                text-align: center;
-                margin-top: 20px;
-            }
-        }
-    </style>
 </head>
 
 <body>
     <header class="site-header">
-        <div class="logo"><img src="assets/images/logo.svg" alt="NORDISK SMAG logo"></div>
-        <nav class="main-nav">
+        <a href="login.html" class="login-link">Log ind</a>
+
+        <div class="logo">
+            <img src="images/logo.png" alt="NORDISK SMAG logo">
+        </div>
+
+        <h1 class="site-title">NORDISK SMAG</h1>
+
+        <button class="burger" id="burger" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="main-nav" id="nav">
             <a href="index.html">Forside</a>
             <a href="recipes.html">Opskrifter</a>
             <a href="form.html">Tilføj opskrift</a>
@@ -128,7 +35,8 @@
             <h1>VELKOMMEN TIL NORDISK SMAG</h1>
             <p>Oplev ærlige og sunde retter med nordisk twist – lavet til både børn, unge og familier.
                 Find inspiration til morgenmad, frokost, aftensmad og dessert, og lad madlavningen blive hyggens
-                centrum.</p>
+                centrum.
+            </p>
             <div class="categories">
                 <a class="cat" href="recipes.html?type=Breakfast">Morgenmad</a>
                 <a class="cat" href="recipes.html?type=Lunch">Frokost</a>
@@ -138,16 +46,13 @@
         </div>
     </main>
 
-    <!-- ✅ Clean footer -->
     <footer>
         <div class="footer-container">
-            <!-- Left side -->
             <div class="footer-left">
                 <div class="footer-logo">
                     NORDISK <br>
                     <span>SMAG</span>
                 </div>
-
                 <div class="footer-links">
                     <a href="#">Om os</a>
                     <a href="#">Kontakt</a>
@@ -155,14 +60,12 @@
                 </div>
             </div>
 
-            <!-- Right side -->
             <div class="footer-right">
                 <div class="newsletter">
                     <label for="email">Nyhedsbrev:</label>
                     <input type="email" id="email" placeholder="Email">
                     <button>SIGN UP</button>
                 </div>
-
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -173,7 +76,17 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        const burger = document.getElementById('burger');
+        const nav = document.getElementById('nav');
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+            burger.classList.toggle('active');
+            burger.innerHTML = burger.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+    </script>
 </body>
 
 </html>
