@@ -1,10 +1,12 @@
 /** @format */
 
+// recipes.js - fetch list fra DummyJSON
 document.addEventListener("DOMContentLoaded", () => {
   const list = document.querySelector(".recipe-list");
   const select = document.getElementById("filter");
   const params = new URLSearchParams(window.location.search);
   const qType = params.get("type") || "";
+
   fetch("https://dummyjson.com/recipes")
     .then((r) => r.json())
     .then((data) => {
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error(err);
       if (list) list.innerHTML = "<p>Kunne ikke hente opskrifter.</p>";
     });
+
   if (select) {
     select.value = qType;
     select.addEventListener("change", (e) => {
@@ -25,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 function showList(recipes) {
   const container = document.querySelector(".recipe-list");
   if (!container) return;
@@ -36,7 +40,12 @@ function showList(recipes) {
   recipes.forEach((r) => {
     const card = document.createElement("article");
     card.className = "recipe-card";
-    card.innerHTML = `<img src="${r.image}" alt="${r.name}" /><h3>${r.name}</h3><p>${r.cuisine || ""}</p><a href="recipe.html?id=${r.id}">Se detaljer</a>`;
+    card.innerHTML = `
+      <img loading="lazy" src="${r.image}" alt="${r.name}">
+      <h3>${r.name}</h3>
+      <p>${r.cuisine || ""}</p>
+      <a href="recipe.html?id=${r.id}">Se detaljer</a>
+    `;
     container.appendChild(card);
   });
 }
