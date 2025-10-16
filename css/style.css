@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Barrio&display=swap');
 
 :root {
-    --red: #C8102E;
+    --red: #C60C30;
     --white: #ffffff;
     --bg-overlay: rgba(0, 0, 0, 0.25);
 }
@@ -19,11 +19,9 @@ body {
 }
 
 body {
-    margin: 0;
     font-family: 'Poppins', Arial, sans-serif;
     color: #222;
     background-image: url('../images/fig.png');
-    /* background image */
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -40,13 +38,9 @@ body::before {
     z-index: 0;
 }
 
-/* Barrio font only for headers */
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
     font-family: 'Barrio', cursive;
 }
 
@@ -54,24 +48,95 @@ h6 {
 .site-header {
     position: sticky;
     top: 0;
-    z-index: 5;
-    display: flex;
-    justify-content: space-between;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr auto auto 1fr;
     align-items: center;
+    background-color: var(--red);
     padding: 0.75rem 1rem;
-    background: var(--red);
     color: var(--white);
+    font-family: 'Barrio', cursive;
 }
 
-.site-header .logo img {
-    height: 36px;
+.login-link {
+    justify-self: start;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    transition: opacity 0.2s;
+}
+
+.login-link:hover {
+    opacity: 0.8;
+}
+
+.logo {
+    justify-self: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.site-title {
+    justify-self: center;
+    margin: 0;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.burger {
+    justify-self: end;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ---------- NAV MENU ---------- */
+.main-nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background-color: var(--red);
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.main-nav.show {
+    display: flex;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .main-nav a {
     color: var(--white);
     text-decoration: none;
-    margin-left: 1rem;
+    font-family: 'Barrio', cursive;
     font-weight: 600;
+    font-style: italic;
+    transition: opacity 0.2s ease;
+    padding: 0.5rem;
+}
+
+.main-nav a:hover {
+    opacity: 0.8;
 }
 
 /* ---------- HERO ---------- */
@@ -82,8 +147,8 @@ h6 {
     justify-content: center;
     text-align: center;
     padding: 2rem 1rem;
-    z-index: 2;
     position: relative;
+    z-index: 2;
 }
 
 .hero-inner {
@@ -96,14 +161,13 @@ h6 {
 
 .hero h1 {
     color: var(--white);
-    margin: 0 0 0.5rem;
+    margin-bottom: 0.5rem;
     font-size: 28px;
-    letter-spacing: 1px;
 }
 
 .hero p {
     color: var(--white);
-    margin: 0 0 1.25rem;
+    margin-bottom: 1.25rem;
     line-height: 1.5;
 }
 
@@ -131,7 +195,6 @@ h6 {
     font-weight: bold;
     overflow: hidden;
     border: 3px solid #2f2c79;
-    /* dark blue border */
 }
 
 .cat::before {
@@ -152,12 +215,11 @@ h6 {
     z-index: -1;
 }
 
-/* Hover effect */
 .cat:hover::before {
     transform: scale(1.1);
 }
 
-/* Assign images to categories */
+/* Category images */
 .cat[href*="Breakfast"]::before {
     background-image: url('../images/morgen_result.webp');
 }
@@ -175,19 +237,103 @@ h6 {
 }
 
 /* ---------- FOOTER ---------- */
-.site-footer {
-    padding: 1rem;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.9);
+footer {
+    background-color: var(--red);
+    color: white;
+    padding: 40px 60px;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media(min-width:768px) {
-    .hero h1 {
-        font-size: 36px;
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    max-width: 40%;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.4;
+    border-bottom: 2px solid white;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.footer-logo span {
+    display: block;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.footer-links {
+    margin: 25px 0;
+}
+
+.footer-links a {
+    margin-right: 25px;
+    text-decoration: none;
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.footer-right {
+    max-width: 40%;
+    text-align: right;
+}
+
+.newsletter {
+    margin-bottom: 20px;
+}
+
+.newsletter label {
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 10px;
+}
+
+.newsletter input[type="email"] {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.newsletter button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: var(--red);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: white;
+    margin-left: 12px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .hero-inner {
-        padding: 3rem;
+    .footer-right {
+        text-align: center;
+        margin-top: 20px;
     }
 }
