@@ -1,44 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="da">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Opskrifter - Nordisk Smag</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opskrifter | My Products</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="logo"><img src="assets/images/logo.svg" alt="NORDISK SMAG logo"></div>
-        <nav class="main-nav">
-            <a href="index.html">Forside</a>
-            <a href="recipes.html">Opskrifter</a>
-            <a href="form.html">Tilføj opskrift</a>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">My Products</a>
+            <div class="filter-container">
+                <label for="filter">Vælg kategori:</label>
+                <select id="filter">
+                    <option value="">Alle</option>
+                    <option value="Breakfast">Morgenmad</option>
+                    <option value="Lunch">Frokost</option>
+                    <option value="Dinner">Aftensmad</option>
+                    <option value="Snack">Mellem måltider</option>
+                </select>
+            </div>
         </nav>
     </header>
 
     <main class="recipes-page">
-        <section class="controls">
-            <label for="filter">Filter:</label>
-            <select id="filter">
-                <option value="">Vis alle</option>
-                <option value="Breakfast">Morgenmad</option>
-                <option value="Lunch">Frokost</option>
-                <option value="Dinner">Aftensmad</option>
-                <option value="Dessert">Dessert</option>
-            </select>
-        </section>
+        <h1>Opskrifter</h1>
 
-        <section class="recipe-list" aria-live="polite"></section>
+        <!-- Category Section -->
+        <section class="category-section">
+            <h2>Alle opskrifter</h2>
+            <div class="recipe-slider">
+                <button class="scroll-btn left">‹</button>
+                <div class="recipe-list"></div>
+                <button class="scroll-btn right">›</button>
+            </div>
+        </section>
     </main>
 
-    <footer class="site-footer">
-        <small>© Nordisk Smag</small>
+    <footer>
+        <p>&copy; 2025 My Products</p>
     </footer>
 
+    <!-- Scripts -->
     <script src="js/recipes.js"></script>
     <script src="js/main.js"></script>
 </body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <div class="footer-logo">
+                NORDISK <br>
+                <span>SMAG</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Om os</a>
+                <a href="#">Kontakt</a>
+                <a href="#">Job</a>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <div class="newsletter">
+                <label for="email">Nyhedsbrev:</label>
+                <input type="email" id="email" placeholder="Email">
+                <button>SIGN UP</button>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fas fa-rss"></i></a>
+            </div>
+        </div>
+    </div>
 
 </html>
