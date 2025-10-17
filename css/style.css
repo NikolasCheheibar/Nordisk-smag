@@ -1,12 +1,20 @@
+/* --------------------------------------------------------
+   IMPORT AF FONTE
+--------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Barrio&display=swap');
 
+/* --------------------------------------------------------
+   VARIABLER (CSS Custom Properties)
+--------------------------------------------------------- */
 :root {
     --red: #C60C30;
     --white: #ffffff;
     --bg-overlay: rgba(0, 0, 0, 0.25);
 }
 
-/* Reset */
+/* --------------------------------------------------------
+   RESET
+--------------------------------------------------------- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,6 +26,9 @@ body {
     height: 100%;
 }
 
+/* --------------------------------------------------------
+   BODY
+--------------------------------------------------------- */
 body {
     font-family: 'Poppins', Arial, sans-serif;
     color: #222;
@@ -44,7 +55,9 @@ h3 {
     font-family: 'Barrio', cursive;
 }
 
-/* ---------- HEADER ---------- */
+/* --------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
 .site-header {
     position: sticky;
     top: 0;
@@ -64,11 +77,18 @@ h3 {
     text-decoration: none;
     font-weight: bold;
     font-style: italic;
-    transition: opacity 0.2s;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border: 2px solid white;
+    border-radius: 12px;
+    display: inline-block;
+    font-size: 0.9rem;
 }
 
 .login-link:hover {
-    opacity: 0.8;
+    background-color: white;
+    color: var(--red);
+    transform: scale(1.05);
 }
 
 .logo {
@@ -95,7 +115,9 @@ h3 {
     cursor: pointer;
 }
 
-/* ---------- NAV MENU ---------- */
+/* --------------------------------------------------------
+   NAVIGATION
+--------------------------------------------------------- */
 .main-nav {
     display: none;
     position: absolute;
@@ -129,17 +151,41 @@ h3 {
     color: var(--white);
     text-decoration: none;
     font-family: 'Barrio', cursive;
-    font-weight: 600;
+    font-weight: 700;
     font-style: italic;
-    transition: opacity 0.2s ease;
-    padding: 0.5rem;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    margin: 0.25rem 0;
+    transition: all 0.3s ease;
+    display: block;
 }
 
 .main-nav a:hover {
-    opacity: 0.8;
+    opacity: 0.9;
+    transform: scale(1.05);
 }
 
-/* ---------- HERO ---------- */
+@media(min-width: 768px) {
+    .main-nav {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: none;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .main-nav a {
+        padding: 0.75rem 2rem;
+        margin: 0;
+    }
+}
+
+/* --------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
 .hero {
     min-height: calc(100vh - 56px);
     display: flex;
@@ -171,7 +217,9 @@ h3 {
     line-height: 1.5;
 }
 
-/* ---------- CATEGORIES ---------- */
+/* --------------------------------------------------------
+   CATEGORIES
+--------------------------------------------------------- */
 .categories {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -219,7 +267,6 @@ h3 {
     transform: scale(1.1);
 }
 
-/* Category images */
 .cat[href*="Breakfast"]::before {
     background-image: url('../images/morgen_result.webp');
 }
@@ -236,7 +283,9 @@ h3 {
     background-image: url('../images/tiraaa_result.webp');
 }
 
-/* ---------- FOOTER ---------- */
+/* --------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
 footer {
     background-color: var(--red);
     color: white;
@@ -264,16 +313,6 @@ footer {
     margin-bottom: 15px;
 }
 
-.footer-logo span {
-    display: block;
-    font-weight: normal;
-    margin-top: 5px;
-}
-
-.footer-links {
-    margin: 25px 0;
-}
-
 .footer-links a {
     margin-right: 25px;
     text-decoration: none;
@@ -287,23 +326,6 @@ footer {
     text-align: right;
 }
 
-.newsletter {
-    margin-bottom: 20px;
-}
-
-.newsletter label {
-    font-weight: bold;
-    font-style: italic;
-    margin-right: 10px;
-}
-
-.newsletter input[type="email"] {
-    padding: 8px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 5px;
-}
-
 .newsletter button {
     padding: 8px 12px;
     border: none;
@@ -314,10 +336,6 @@ footer {
     cursor: pointer;
 }
 
-.social-icons {
-    margin-top: 15px;
-}
-
 .social-icons a {
     color: white;
     margin-left: 12px;
@@ -325,7 +343,6 @@ footer {
     text-decoration: none;
 }
 
-/* Footer responsive */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -335,5 +352,189 @@ footer {
     .footer-right {
         text-align: center;
         margin-top: 20px;
+    }
+}
+
+/* --------------------------------------------------------
+   RECIPE PAGE - Full-width product layout + slider
+--------------------------------------------------------- */
+
+.recipes-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem 0;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.recipes-page h1,
+.recipes-page h2 {
+    font-family: 'Barrio', cursive;
+    text-transform: uppercase;
+    color: white;
+    margin: 1rem 3vw;
+    letter-spacing: 1px;
+}
+
+.category-section {
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.recipe-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.recipe-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 3vw 2rem 3vw;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+.recipe-list::before,
+.recipe-list::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.recipe-list::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.recipe-list::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent);
+}
+
+/* Recipe cards */
+.recipe-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    min-width: 260px;
+    max-width: 280px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.recipe-card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 0.75rem;
+}
+
+.recipe-card h3 {
+    font-family: 'Barrio', cursive;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.recipe-card p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0.6rem;
+}
+
+.recipe-card a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: white;
+    color: var(--red);
+    border-radius: 10px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.recipe-card a:hover {
+    background: var(--red);
+    color: white;
+}
+
+/* Scrollbar */
+.recipe-list::-webkit-scrollbar {
+    height: 10px;
+}
+
+.recipe-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
+.recipe-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Arrows */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.scroll-btn:hover {
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--red);
+}
+
+.scroll-btn.left {
+    left: 10px;
+}
+
+.scroll-btn.right {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .scroll-btn {
+        display: none;
+    }
+
+    .recipes-page {
+        padding: 1rem;
+    }
+
+    .recipe-card {
+        min-width: 200px;
+        max-width: 220px;
     }
 }
