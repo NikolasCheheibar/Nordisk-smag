@@ -102,7 +102,7 @@ h3 {
 .site-title {
     justify-self: center;
     margin: 0;
-    font-size: 1.75rem;
+    font-size: 3rem;
     text-align: center;
 }
 
@@ -208,7 +208,7 @@ h3 {
 .hero h1 {
     color: var(--white);
     margin-bottom: 0.5rem;
-    font-size: 28px;
+    font-size: 60px;
 }
 
 .hero p {
@@ -236,7 +236,7 @@ h3 {
     border-radius: 12px;
     text-decoration: none;
     font-family: 'Barrio', cursive;
-    font-size: 22px;
+    font-size: 50px;
     color: var(--white);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -537,4 +537,194 @@ footer {
         min-width: 200px;
         max-width: 220px;
     }
+}
+
+/* --------------------------------------------------------
+   ANDRE GODE FORSLAG - SLIDER
+--------------------------------------------------------- */
+.andre-forslag {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.andre-forslag h2 {
+    font-family: 'Barrio', cursive;
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.forslag-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem;
+    scroll-snap-type: x mandatory;
+}
+
+.forslag-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    min-width: 230px;
+    flex: 0 0 auto;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+    scroll-snap-align: center;
+    transition: transform 0.3s ease;
+}
+
+.forslag-card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.forslag-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.forslag-card h3 {
+    font-family: 'Barrio', cursive;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.forslag-card p {
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+.forslag-card .btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    transition: color 0.3s ease;
+}
+
+.forslag-card .btn:hover {
+    color: var(--red);
+    border-color: var(--red);
+}
+
+/* Pile til slideren */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: black;
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 5;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.arrow:hover {
+    background: var(--red);
+    opacity: 1;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+/* BODY som flex container */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* MAIN fylder alt ledigt rum */
+main {
+    flex: 1;
+}
+
+/* Formular styling */
+.form-page {
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+}
+
+.recipe-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.recipe-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.recipe-form input,
+.recipe-form textarea,
+.recipe-form select {
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.95rem;
+}
+
+.recipe-form input::placeholder,
+.recipe-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.recipe-form button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--red);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.recipe-form button:hover {
+    background-color: white;
+    color: var(--red);
+    transform: scale(1.05);
 }
