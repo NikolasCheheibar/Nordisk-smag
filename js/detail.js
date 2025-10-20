@@ -3,8 +3,8 @@
 // detail.js - fetch single
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
-  const id = params.get("id"); // her er id fx 15
-  const container = document.querySelector(".recipe-detail");
+  const id = params.get("id");
+  const container = document.getElementById("recipe-container"); // ✅ kun dette element
   if (!id || !container) return;
 
   fetch("https://dummyjson.com/recipes/" + id)
