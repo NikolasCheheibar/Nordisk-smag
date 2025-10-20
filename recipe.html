@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Opskrift - Nordisk Smag</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="images/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/png" href="images/images/favicon.svg" />
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <a href="login.html" class="login-link">Log på</a>
 
         <div class="logo">
-            <img src="images/logo.png" alt="NORDISK SMAG logo">
+            <img src="images/images/logo.png" alt="NORDISK SMAG logo" />
         </div>
 
         <h1 class="site-title">NORDISK SMAG</h1>
@@ -32,49 +32,21 @@
     </header>
 
     <main class="recipe-detail">
-        <a href="recipes.html" class="back-btn"><i class="fas fa-arrow-left"></i> Tilbage til opskrifter</a>
-        <img src="images/chicken-alfredo.jpg" alt="Chicken Alfredo Pasta">
-        <h1>Chicken Alfredo Pasta</h1>
-        <p class="description">En cremet og lækker pastaret med saftig kylling og fløjlsblød parmesanflødesauce –
-            perfekt til både hverdag og weekend.</p>
+        <a href="recipes.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Tilbage til opskrifter
+        </a>
 
-        <div class="recipe-meta">
-            <span><i class="far fa-clock"></i> 30 min</span>
-            <span><i class="fas fa-user-friends"></i> 2 personer</span>
-        </div>
-
-        <div class="recipe-columns">
-            <section>
-                <h2>Ingredienser</h2>
-                <ul>
-                    <li>200g fettuccine pasta</li>
-                    <li>2 kyllingebrystfileter</li>
-                    <li>2 spsk smør</li>
-                    <li>2 dl fløde</li>
-                    <li>1 dl revet parmesan</li>
-                    <li>1 fed hvidløg</li>
-                    <li>Salt og peber</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Fremgangsmåde</h2>
-                <ol>
-                    <li>Kog pastaen efter anvisning på pakken.</li>
-                    <li>Steg kyllingen i smør, til den er gylden og gennemstegt.</li>
-                    <li>Tilsæt hvidløg og fløde, og lad det simre et par minutter.</li>
-                    <li>Rør parmesan i saucen, til den bliver cremet.</li>
-                    <li>Bland pastaen i saucen og smag til med salt og peber.</li>
-                </ol>
-            </section>
+        <div id="recipe-container">
+            <p>Henter opskrift...</p>
         </div>
     </main>
 
+    <!-- ✅ Her beholder vi "Andre gode forslag" -->
     <section class="andre-forslag">
         <h2><span class="red">ANDRE</span> GODE FORSLAG:</h2>
         <div class="forslag-container">
             <div class="forslag-card" data-id="1">
-                <img src="images/gluten-free-spaghetti-bolognese-close-500x500.webp" alt="Pasta aften">
+                <img src="images/gluten-free-spaghetti-bolognese-close-500x500.webp" alt="Pasta aften" />
                 <div class="forslag-content">
                     <h3>Pasta Aften</h3>
                     <p>Protein: 18g</p>
@@ -85,7 +57,7 @@
             </div>
 
             <div class="forslag-card" data-id="5">
-                <img src="images/cookies.webp" alt="American cookies">
+                <img src="images/cookies.webp" alt="American cookies" />
                 <div class="forslag-content">
                     <h3>American Cookies</h3>
                     <p>Protein: 6g</p>
@@ -96,7 +68,7 @@
             </div>
 
             <div class="forslag-card" data-id="10">
-                <img src="images/morgen_result.webp" alt="Brunch">
+                <img src="images/morgen_result.webp" alt="Brunch" />
                 <div class="forslag-content">
                     <h3>Brunch</h3>
                     <p>Protein: 25g</p>
@@ -107,7 +79,7 @@
             </div>
 
             <div class="forslag-card" data-id="15">
-                <img src="images/DSC_0424.webp" alt="Tarteletter">
+                <img src="images/DSC_0424.webp" alt="Tarteletter" />
                 <div class="forslag-content">
                     <h3>Tarteletter</h3>
                     <p>Protein: 14g</p>
@@ -119,15 +91,14 @@
         </div>
     </section>
 
-
     <footer>
         <div class="footer-container">
             <div class="footer-left">
                 <div class="footer-logo">
                     <div class="logo">
-                        <img src="images/logo.png" alt="NORDISK SMAG logo">
+                        <img src="images/images/logo.png" alt="NORDISK SMAG logo" />
                     </div>
-                    NORDISK <br>
+                    NORDISK <br />
                     <span>SMAG</span>
                 </div>
                 <div class="footer-links">
@@ -140,7 +111,7 @@
             <div class="footer-right">
                 <div class="newsletter">
                     <label for="email">Nyhedsbrev:</label>
-                    <input type="email" id="email" placeholder="Email">
+                    <input type="email" id="email" placeholder="Email" />
                     <button>SIGN UP</button>
                 </div>
                 <div class="social-icons">
@@ -155,13 +126,14 @@
 
     <script src="js/detail.js"></script>
     <script src="js/main.js"></script>
+
     <script>
-        const burger = document.getElementById('burger');
-        const nav = document.getElementById('nav');
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('show');
-            burger.classList.toggle('active');
-            burger.innerHTML = burger.classList.contains('active')
+        const burger = document.getElementById("burger");
+        const nav = document.getElementById("nav");
+        burger.addEventListener("click", () => {
+            nav.classList.toggle("show");
+            burger.classList.toggle("active");
+            burger.innerHTML = burger.classList.contains("active")
                 ? '<i class="fas fa-times"></i>'
                 : '<i class="fas fa-bars"></i>';
         });
