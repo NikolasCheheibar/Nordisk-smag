@@ -208,7 +208,7 @@ h3 {
 .hero h1 {
     color: var(--white);
     margin-bottom: 0.5rem;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .hero p {
@@ -236,7 +236,7 @@ h3 {
     border-radius: 12px;
     text-decoration: none;
     font-family: 'Barrio', cursive;
-    font-size: 50px;
+    font-size: 40px;
     color: var(--white);
     text-transform: uppercase;
     letter-spacing: 2px;
