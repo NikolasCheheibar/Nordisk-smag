@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kontakt – Nordisk Smag</title>
+
+    <!-- Fonts og CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/png" href="images/favicon.svg" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <a href="login.html" class="login-link">Log på</a>
+
+        <div class="logo">
+            <img src="images/logo.png" alt="NORDISK SMAG logo" />
+        </div>
+
+        <h1 class="site-title">NORDISK SMAG</h1>
+
+        <!-- Burger-menu -->
+        <button class="burger" id="burger" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="main-nav" id="nav">
+            <a href="index.html">Forside</a>
+            <a href="recipes.html">Opskrifter</a>
+            <a href="form.html">Tilføj opskrift</a>
+            <a href="om-os.html">Om os</a>
+            <a href="contact.html" class="active">Kontakt</a>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="contact-page">
+        <section class="contact-intro">
+            <h2>Kontakt os</h2>
+            <p>
+                Har du spørgsmål, forslag eller vil du gerne i kontakt med os?
+                Udfyld formularen nedenfor – vi vender tilbage hurtigst muligt.
+            </p>
+        </section>
+
+        <section class="contact-form">
+            <form onsubmit="event.preventDefault(); alert('Tak for din besked!')">
+                <label for="name">Navn</label>
+                <input type="text" id="name" name="name" placeholder="Dit navn" required />
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Din e-mail" required />
+
+                <label for="message">Besked</label>
+                <textarea id="message" name="message" placeholder="Skriv din besked her..." required></textarea>
+
+                <button type="submit">Send besked</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- Venstre side -->
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="NORDISK SMAG logo" />
+                    </div>
+                    NORDISK <br /><span>SMAG</span>
+                </div>
+
+                <!-- Footer-links -->
+                <div class="footer-links">
+                    <a href="om-os.html">Om os</a>
+                    <a href="contact.html" class="active">Kontakt</a>
+                    <a href="jobs.html">Job</a>
+                </div>
+            </div>
+
+            <!-- Højre side -->
+            <div class="footer-right">
+                <div class="newsletter">
+                    <label for="newsletter-email">Nyhedsbrev:</label>
+                    <input type="email" id="newsletter-email" placeholder="Email" />
+                    <button>SIGN UP</button>
+                </div>
+
+                <!-- Sociale medier -->
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fas fa-rss"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-copy">&copy; 2025 Nordisk Smag</p>
+    </footer>
+
+    <!-- BURGERMENU SCRIPT -->
+    <script>
+        const burger = document.getElementById("burger");
+        const nav = document.getElementById("nav");
+
+        burger.addEventListener("click", () => {
+            nav.classList.toggle("show");
+            burger.classList.toggle("active");
+            burger.innerHTML = burger.classList.contains("active")
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+
+</html>

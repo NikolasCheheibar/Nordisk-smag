@@ -809,3 +809,41 @@ footer {
         padding: 0.4rem 0.8rem;
     }
 }
+
+.about-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    line-height: 1.7;
+}
+
+.about-page h2,
+.about-page h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.team-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    flex: 1 1 250px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    position: relative;
+    z-index: 10;
+    /* Sørger for at ligge øverst */
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job | Nordisk Smag</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicon.svg">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <a href="login.html" class="login-link">Log på</a>
+        <div class="logo">
+            <img src="images/logo.png" alt="NORDISK SMAG logo">
+        </div>
+        <h1 class="site-title">NORDISK SMAG</h1>
+
+        <!-- Burger-menu -->
+        <button class="burger" id="burger" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="main-nav" id="nav">
+            <a href="index.html">Forside</a>
+            <a href="recipes.html">Opskrifter</a>
+            <a href="form.html">Tilføj opskrift</a>
+            <a href="jobs.html" class="active">Job</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="jobs-page">
+        <h1>Ledige stillinger hos Nordisk Smag</h1>
+        <p>Vi er altid på udkig efter engagerede og madglade mennesker, som vil være med til at udvikle Nordisk Smag.
+            Se vores ledige stillinger herunder:</p>
+
+        <!-- Liste over jobs -->
+        <section class="job-list">
+            <article class="job-card">
+                <h2>Kok / Køkkenassistent</h2>
+                <p>Fuldtid, København</p>
+                <p>Vi søger en kreativ kok, der elsker at lave nordiske retter med friske råvarer.</p>
+                <a href="mailto:job@nordisksmag.dk?subject=Ansøgning%20Kok" class="btn">Ansøg her</a>
+            </article>
+
+            <article class="job-card">
+                <h2>Content Creator / Opskriftsudvikler</h2>
+                <p>Deltid, Remote / Hjemmearbejde muligt</p>
+                <p>Elsker du mad, fotografi og sociale medier? Vi søger en kreativ sjæl til opskriftsindhold.</p>
+                <a href="mailto:job@nordisksmag.dk?subject=Ansøgning%20Content%20Creator" class="btn">Ansøg her</a>
+            </article>
+
+            <article class="job-card">
+                <h2>Marketing / Social Media</h2>
+                <p>Fuldtid, København</p>
+                <p>Vi søger en dygtig marketingmedarbejder til at håndtere sociale medier, kampagner og samarbejder.</p>
+                <a href="mailto:job@nordisksmag.dk?subject=Ansøgning%20Marketing" class="btn">Ansøg her</a>
+            </article>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="NORDISK SMAG logo">
+                    </div>
+                    NORDISK <br>
+                    <span>SMAG</span>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">Om os</a>
+                    <a href="contact.html">Kontakt</a>
+                    <a href="jobs.html" class="active">Job</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="newsletter">
+                    <label for="newsletter-email">Nyhedsbrev:</label>
+                    <input type="email" id="newsletter-email" placeholder="Email">
+                    <button>SIGN UP</button>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fas fa-rss"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="footer-copy">&copy; 2025 Nordisk Smag</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/main.js"></script>
+    <script>
+        // Burger-menu funktionalitet
+        const burger = document.getElementById('burger');
+        const nav = document.getElementById('nav');
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+            burger.classList.toggle('active');
+            burger.innerHTML = burger.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+
+</html>

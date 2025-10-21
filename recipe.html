@@ -1,26 +1,42 @@
 <!doctype html>
 <html lang="da">
 
+<!-- Denne side viser en enkelt opskrift i detaljer.
+     Selve opskriften bliver hentet dynamisk via detail.js, 
+     og her har jeg også tilføjet et afsnit med “andre gode forslag” nederst. -->
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Opskrift - Nordisk Smag</title>
+
+    <!-- Jeg linker til mit eget stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Font Awesome til ikoner -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicon til fanebladet -->
     <link rel="icon" type="image/png" href="images/favicon.svg">
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- HEADER -->
     <header class="site-header">
         <a href="login.html" class="login-link">Log på</a>
+
         <div class="logo">
             <img src="images/logo.png" alt="NORDISK SMAG logo">
         </div>
+
         <h1 class="site-title">NORDISK SMAG</h1>
+
+        <!-- Burger-menu til mobilvisning -->
         <button class="burger" id="burger" aria-label="Menu">
             <i class="fas fa-bars"></i>
         </button>
+
+        <!-- Navigation -->
         <nav class="main-nav" id="nav">
             <a href="index.html">Forside</a>
             <a href="recipes.html">Opskrifter</a>
@@ -28,22 +44,26 @@
         </nav>
     </header>
 
-    <!-- Main opskrift -->
+    <!-- HOVEDINDHOLD: OPSKRIFT -->
     <main class="recipe-detail">
+        <!-- Tilbage-knap så man kan gå retur til opskrifterne -->
         <a href="recipes.html" class="back-btn">
             <i class="fas fa-arrow-left"></i> Tilbage til opskrifter
         </a>
 
-        <!-- Her indsættes opskriften dynamisk via detail.js -->
+        <!-- Selve opskriften bliver indsat her via JavaScript -->
         <div id="recipe-container">
             <p>Henter opskrift...</p>
         </div>
     </main>
 
-    <!-- Andre gode forslag -->
+    <!-- ANDRE GODE FORSLAG -->
+    <!-- Her viser jeg nogle ekstra retter som inspiration under opskriften -->
     <section class="andre-forslag">
         <h2><span class="red">ANDRE</span> GODE FORSLAG:</h2>
+
         <div class="forslag-container">
+            <!-- Hver kort viser et eksempel på en anden ret man kan tjekke ud -->
             <div class="forslag-card" data-id="1">
                 <img src="images/gluten-free-spaghetti-bolognese-close-500x500.webp" alt="Pasta aften">
                 <div class="forslag-content">
@@ -90,9 +110,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-container">
+            <!-- Venstre del af footer -->
             <div class="footer-left">
                 <div class="footer-logo">
                     <div class="logo">
@@ -101,6 +122,7 @@
                     NORDISK <br>
                     <span>SMAG</span>
                 </div>
+
                 <div class="footer-links">
                     <a href="#">Om os</a>
                     <a href="#">Kontakt</a>
@@ -108,12 +130,16 @@
                 </div>
             </div>
 
+            <!-- Højre del af footer -->
             <div class="footer-right">
+                <!-- Nyhedsbrev -->
                 <div class="newsletter">
                     <label for="email">Nyhedsbrev:</label>
                     <input type="email" id="email" placeholder="Email">
                     <button>SIGN UP</button>
                 </div>
+
+                <!-- Sociale medier -->
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -124,15 +150,22 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- JAVASCRIPT -->
+    <!-- detail.js henter opskriften dynamisk -->
+    <!-- main.js styrer generelle funktioner som fx sliders -->
     <script src="js/detail.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Burger-menuen styres her (samme som på forsiden) -->
     <script>
         const burger = document.getElementById('burger');
         const nav = document.getElementById('nav');
+
         burger.addEventListener('click', () => {
             nav.classList.toggle('show');
             burger.classList.toggle('active');
+
+            // Skifter ikon alt efter om menuen er åben eller lukket
             burger.innerHTML = burger.classList.contains('active')
                 ? '<i class="fas fa-times"></i>'
                 : '<i class="fas fa-bars"></i>';
